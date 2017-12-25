@@ -6,16 +6,14 @@ const defaultDate = fromJS({
 })
 
 export default (state = defaultDate, action )=>{
-    if(action.type === constant.TYPE_FOCUS){
-        return state.set('focused',true)
-        
+    switch(action.type){
+        case constant.TYPE_FOCUS:
+            return state.set('focused',true)
+        case constant.TYPE_BLUR:
+            return state.set('focused',false)
+        case constant.TYPE_LIST_DATE:
+            return state.set('list',action.data)
+        default:
+           return state 
     }
-    if(action.type === constant.TYPE_BLUR){
-        return state.set('focused',false)
-    }
-    if(action.type ===constant.TYPE_LIST_DATE){
-        console.log(action.data);
-        return state.set('list',action.data)
-    }
-    return state
 }
