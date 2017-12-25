@@ -77,7 +77,7 @@ export const SearchInfoItem = styled.a`
     margin-right:10px;
     margin-bottom:10px;
     border:1px solid #ddd;
-    padding:3px 5px;
+    padding:2px 4px;
     border-radius:3px;
 `
 
