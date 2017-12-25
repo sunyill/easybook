@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import headerReducer from '../common/header/store/reducer'
 
 const reducer = combineReducers({
