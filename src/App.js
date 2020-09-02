@@ -1,10 +1,15 @@
-import React , {Component} from 'react';
+import React , {Component, Fragment} from 'react';
 import Header from './common/header'
-
+import { GlobalStyled } from './style' 
+import { IconFontStyled } from './statics/iconfont/iconfont'
 class App extends Component {
   render(){
     return (
-      <Header></Header>
+      <Fragment>
+        <GlobalStyled/>
+        <IconFontStyled/>
+        <Header></Header>
+      </Fragment>
     )
   }
 }
