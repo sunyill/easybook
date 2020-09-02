@@ -5,8 +5,7 @@ export const Headers = styled.div`
     width:100%;
     height:56px;
     position:relative;
-    border-bottom:1px solid #ccc;
-    
+    border-bottom:1px solid #ccc;    
 `
 
 export const Logo = styled.a.attrs({
@@ -51,29 +50,51 @@ export const SearchWrapper = styled.div`
     position:relative;
     .iconfont {
         position:absolute;
-        right:0;
-        top:0;
-        height:38px;
-        width:38px;
-        border-radius:19px;
+        right:5px;
+        bottom:8px;
+        width:36px;
+        line-height:36px;
+        border-radius:18px;
+        text-align:center;
+        &.focused {
+            background:#777;
+            color:#fff;
+        }
     }
 `
 
 export const Search = styled.input.attrs({
     placeholder:"搜索"
 })`
+    .slide-enter{
+        transition:all 2s ease-out; 
+    }
+    .slide-enter-active {
+        width:240px;
+    }
+    .slide-exit {
+        transition:all 2s ease-out; 
+    }
+    .slide-exit-active {
+        width:160px;
+    }
     width:160px;
     height:38px;
-    padding: 0 20px;
+    padding: 0 40px 0 20px;
     border:none;
     outline:none;
     box-sizing:border-box;
     border-radius:19px;
     font-size:14px;
     background:#eee;
+    color:#777;
     &::placeholder{
         color:#999;
     }
+    &.focused {
+        width:240px;
+    }
+    
 `
 
 export const AddContent = styled.div`
