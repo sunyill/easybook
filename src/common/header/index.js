@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Headers, Logo,Nav,NavItem,SearchWrapper,Search,AddContent,Button} from './style'
 import { CSSTransition } from 'react-transition-group'
 class Header extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            focused:false
-        }
-        this.onFocusHandle = this.onFocusHandle.bind(this)
-        this.onBlurHandle = this.onBlurHandle.bind(this)
-    }
     render (){
         return (
             <Headers>
@@ -24,16 +17,16 @@ class Header extends Component {
                     <SearchWrapper>
                         <CSSTransition
                             timeout ={ 2000 }
-                            in= {this.state.focused}
+                            in= {this.props.focused}
                             classNames = 'slide'
                         >
                             <Search 
-                            className= {this.state.focused? "focused":''}
-                            onFocus = {this.onFocusHandle}
-                            onBlur = {this.onBlurHandle}
+                            className= {this.props.focused? "focused":''}
+                            onFocus = {this.props.onFocusHandle}
+                            onBlur = {this.props.onBlurHandle}
                             ></Search>
                         </CSSTransition>
-                            <i className= {this.state.focused? "focused iconfont":'iconfont'}>&#xe681;</i>
+                            <i className= {this.props.focused? "focused iconfont":'iconfont'}>&#xe681;</i>
                     </SearchWrapper>
                 </Nav>
                 <AddContent>
@@ -46,16 +39,31 @@ class Header extends Component {
             
         )
     }
-    onFocusHandle(){
-        this.setState({
-            focused:true
-        })
-    }
-    onBlurHandle(){
-        this.setState({
-            focused:false
-        })
+}
+
+const mapStateToProps = (state)=>{
+    return {
+        focused:state.focused
     }
 }
 
-export default Header
+const mapDispathToProps = (dispath)=>{
+    return {
+        onFocusHandle(){
+            console.log("123");
+            const action = {
+                type:'type_focus'
+            }
+            dispath(action)
+        },
+        onBlurHandle(){
+            const action = {
+                type:"type_blur"
+            }
+            dispath(action)
+        }
+    }
+}
+
+
+export default  connect(mapStateToProps,mapDispathToProps)(Header) 
