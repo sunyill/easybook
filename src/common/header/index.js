@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Headers, Logo,Nav,NavItem,SearchWrapper,Search,AddContent,Button} from './style'
 import { CSSTransition } from 'react-transition-group'
+import { actionCreators }from './store'
 
 const Header = (props)=>{
             return (
@@ -49,15 +50,10 @@ const mapStateToProps = (state)=>{
 const mapDispathToProps = (dispath)=>{
     return {
         onFocusHandle(){
-            const action = {
-                type:'type_focus'
-            }
-            dispath(action)
+            dispath(actionCreators.typeFocus())
         },
         onBlurHandle(){
-            const action = {
-                type:"type_blur"
-            }
+            const action = actionCreators.typeBlur()
             dispath(action)
         }
     }
