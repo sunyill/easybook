@@ -1,14 +1,15 @@
+import * as constant from './constant'
 const defaultDate = {
     focused:false
 }
 
 export default (state = defaultDate, action )=>{
-    if(action.type ==="type_focus"){
+    if(action.type === constant.TYPE_FOCUS){
         return {
             focused:true
         }
     }
-    if(action.type === "type_blur"){
+    if(action.type === constant.TYPE_BLUR){
         return {
             focused:false
         }
