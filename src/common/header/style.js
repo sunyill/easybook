@@ -45,6 +45,42 @@ export const NavItem = styled.div`
     }
 `
 
+// 热搜
+export const SearchInfo = styled.div`
+    position:absolute;
+    left:0;
+    top:56px;
+    width:250px;
+    padding:0 20px;
+    box-sizing:border-box;
+    box-shadow:0 0 8px rgba(0,0,0,.2)   
+`
+export const SearchInfoTitle = styled.div`
+    font-size:14px;
+    color:#969696;
+`
+export const SearchInfoSearch = styled.span`
+    float:right;
+    font-size:13px;
+    color:#969696;
+`
+
+export const SearchInfoList = styled.div`
+    overflow:hidden;
+`
+export const SearchInfoItem = styled.a`
+    float:left;
+    display:block;
+    color:#787878;
+    font-size:12px;
+    line-height:20px;
+    margin-right:10px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
+    padding:3px 5px;
+    border-radius:3px;
+`
+
 export const SearchWrapper = styled.div`
     float:left;
     position:relative;
