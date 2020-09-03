@@ -5,8 +5,10 @@ import { CSSTransition } from 'react-transition-group'
 import { actionCreators } from './store'
 
 class  Header extends Component {
+    
      handleSearchHot = () => {
-        if (this.props.focused) {
+        const {focused, list} = this.props;
+        if (focused) {
             return (
                 <SearchInfo>
                     <SearchInfoTitle>热门搜索
@@ -14,7 +16,7 @@ class  Header extends Component {
                     </SearchInfoTitle>
                     <SearchInfoList>
                         {
-                            this.props.list.map((item)=>{
+                            list.map((item)=>{
                                 return <SearchInfoItem key={item} >{item}</SearchInfoItem>
                             }
                             )
@@ -28,6 +30,7 @@ class  Header extends Component {
         }
     }
     render(){
+        const {focused, onFocusHandle,onBlurHandle} = this.props;
         return (
             <Headers>
                 <Logo />
@@ -41,17 +44,17 @@ class  Header extends Component {
                     <SearchWrapper>
                         <CSSTransition
                             timeout={2000}
-                            in={this.props.focused}
+                            in={focused}
                             classNames='slide'
                         >
                             <Search
-                                className={this.props.focused ? "focused" : ''}
-                                onFocus={this.props.onFocusHandle}
-                                onBlur={this.props.onBlurHandle}
+                                className={focused ? "focused" : ''}
+                                onFocus={onFocusHandle}
+                                onBlur={onBlurHandle}
                             ></Search>
     
                         </CSSTransition>
-                        <i className={this.props.focused ? "focused iconfont" : 'iconfont'}>&#xe681;</i>
+                        <i className={focused ? "focused iconfont" : 'iconfont'}>&#xe681;</i>
                         {this.handleSearchHot()}
                     </SearchWrapper>
                 </Nav>
